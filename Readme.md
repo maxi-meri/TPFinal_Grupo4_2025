@@ -91,15 +91,13 @@ Instrucciones de Uso y Ejecución
 
 Imágenes y Video Demostrativo
  
-![Maqueta del proyecto](media/wa)
+![Imagen Demostrativa](media/Imagen_WhatsApp.jpg)
+
+![Video Demostrativa]()
 
 ***********************
 
-## 📄 Licencia
+Licencia
 Este proyecto se distribuye bajo la licencia **MIT**.  
 Puedes usarlo, modificarlo y compartirlo libremente mencionando a los autores.
 
----
-
-## 🙌 Créditos
-Proyecto realizado por los integrantes del grupo para la materia [Nombre de la materia], utilizando Arduino y componentes electrónicos básicos.
