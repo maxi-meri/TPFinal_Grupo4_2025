@@ -91,7 +91,7 @@ Instrucciones de Uso y Ejecución
 
 Imágenes y Video Demostrativo
  
-![Imagen Demostrativa](media/Imagen_WhatsApp.jpg)
+![Imagen Demostrativa](media/Demostracion.jpg)
 
 ![Video Demostrativa]()
 
