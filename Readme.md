@@ -72,7 +72,7 @@ El sistema trabaja con la siguiente lógica:
 1. **Esperando**  
    - El sensor mide distancias constantemente.  
 2. **Detectado**  
-   - Si la distancia es menor al umbral, pasa al estado siguiente.  
+   - Si la distancia es menor a la distancia determinada, pasa al estado siguiente.  
 3. **Dispensando**  
    - Se activa el servo → abre el compartimento.  
 4. **Reinicio**  
