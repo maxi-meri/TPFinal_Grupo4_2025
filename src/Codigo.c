@@ -63,5 +63,37 @@ void medirSensor() {
 
     servoMotor.write(180);
     digitalWrite(motor1, HIGH);
+    
+    void controlarMotor(unsigned long tiempoActual) {
+  switch (estadoMotor) {
+
+    // Primer movimiento 
+    case 0:
+      if (tiempoActual - tiempoMotor >= 2000) {
+        servoMotor.write(0);
+        tiempoMotor = tiempoActual;
+        estadoMotor = 1;
+      }
+      break;
+
+    // Segundo movimiento 
+    case 1:
+      if (tiempoActual - tiempoMotor >= 2000) {
+        servoMotor.write(180);
+        tiempoMotor = tiempoActual;
+        estadoMotor = 2;
+      }
+      break;
+
+    // Finalizar ciclo
+    case 2:
+      if (tiempoActual - tiempoMotor >= 2000) {
+        servoMotor.write(0);
+        movimientoActivo = false;
+        leerSensor = true;
+        digitalWrite(motor1, LOW);
+      }
+      break;
   }
 }
+
