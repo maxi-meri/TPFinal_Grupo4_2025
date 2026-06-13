@@ -1,0 +1,21 @@
+body{
+margin: 0;
+padding: 0;
+font-family: sans-serif;
+text-align: center;
+font-weight: bold;
+font-size: 40px;
+}
+
+.caja{
+display: flex;
+/*maneja el main acces row izq a dere, row revers de derecha a izquierda y colum es de arriba a abajo y colum revers que es de abajo a arriba*/
+flex-direction: column;
+}
+
+.elemento{
+background-color: rgb(0, 255, 55);
+width: 50px;
+margin: 10px;
+border: 8px solid rgb(127, 19, 170);
+}

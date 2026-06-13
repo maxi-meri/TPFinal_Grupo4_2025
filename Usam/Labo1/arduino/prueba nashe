@@ -1,0 +1,257 @@
+#include <Arduino.h>
+
+/* ---------- PINES ARDUINO NANO ---------- */
+#define DATA_PIN 11
+#define CLOCK_PIN 13
+#define LATCH_PIN 10
+
+#define LED_CONTAR 6
+#define LED_FIN 7
+
+bool reinicioPendiente = false;
+unsigned long tiempoReinicio = 0;
+
+uint8_t columnas[4] = {2, 3, 4, 5};
+uint8_t botones[6] = {A0, A1, A2, A3, A4, A5};
+
+typedef enum
+{
+  CONFIG,
+  CONTANDO,
+  PAUSA,
+  FINALIZADO
+} estado_t;
+
+estado_t estado = CONFIG;
+
+uint16_t valorSeteado = 0;
+uint16_t contador = 0;
+
+unsigned long tiempoConteo = 0;
+
+const uint8_t tabla7seg[10] = {
+    0b11101110, // 0 b,a,f,g,e,d,c
+    0b10000010, // 1
+    0b11011100, // 2
+    0b11010110, // 3
+    0b10110010, // 4
+    0b01110110, // 5
+    0b01111110, // 6
+    0b11000010, // 7
+    0b11111110, // 8
+    0b11110110  // 9
+};
+
+void configurarPuertos()
+{
+  pinMode(DATA_PIN, OUTPUT);
+  pinMode(CLOCK_PIN, OUTPUT);
+  pinMode(LATCH_PIN, OUTPUT);
+
+  pinMode(LED_CONTAR, OUTPUT);
+  pinMode(LED_FIN, OUTPUT);
+
+  for (int i = 0; i < 4; i++)
+    pinMode(columnas[i], OUTPUT);
+
+  for (int i = 0; i < 6; i++)
+    pinMode(botones[i], INPUT_PULLUP);
+}
+
+void enviar595(uint8_t *datos)
+{
+  digitalWrite(LATCH_PIN, LOW);
+
+  for (int i = 4; i >= 0; i--)
+  {
+    for (int b = 7; b >= 0; b--)
+    {
+      digitalWrite(CLOCK_PIN, LOW);
+      digitalWrite(DATA_PIN, (datos[i] >> b) & 1);
+      delayMicroseconds(5);
+      digitalWrite(CLOCK_PIN, HIGH);
+      delayMicroseconds(5);
+    }
+  }
+
+  digitalWrite(LATCH_PIN, HIGH);
+}
+
+void multiplexar(uint16_t valor)
+{
+  static uint8_t col = 0;
+
+  uint8_t digitos[4];
+  uint8_t buffer[5];
+
+  digitos[0] = valor % 10;
+  digitos[1] = (valor / 10) % 10;
+  digitos[2] = (valor / 100) % 10;
+  digitos[3] = (valor / 1000) % 10;
+
+  for (int i = 0; i < 4; i++)
+    digitalWrite(columnas[i], LOW);
+
+  for (int f = 0; f < 5; f++)
+    buffer[f] = tabla7seg[digitos[col]];
+
+  enviar595(buffer);
+
+  digitalWrite(columnas[col], HIGH);
+
+  delay(1);
+
+  digitalWrite(columnas[col], LOW);
+
+  col++;
+  if (col >= 4)
+    col = 0;
+}
+
+bool boton(uint8_t b)
+{
+  static bool estadoAnterior[6] = {1, 1, 1, 1, 1, 1};
+  bool estadoActual = digitalRead(botones[b]);
+
+  if (estadoAnterior[b] == HIGH && estadoActual == LOW)
+  {
+    estadoAnterior[b] = estadoActual;
+    return true;
+  }
+
+  estadoAnterior[b] = estadoActual;
+  return false;
+}
+
+void mostrarFinal()
+{
+  static unsigned long t = 0;
+  static bool visible = false;
+
+  uint8_t fin[5] = {
+      tabla7seg[8], tabla7seg[8],
+      tabla7seg[8], tabla7seg[8],
+      tabla7seg[8]};
+
+  if (millis() - t > 300)
+  {
+    t = millis();
+    visible = !visible;
+  }
+
+  if (visible)
+  {
+    enviar595(fin);
+    for (int i = 0; i < 4; i++)
+      digitalWrite(columnas[i], HIGH);
+  }
+  else
+  {
+    for (int i = 0; i < 4; i++)
+      digitalWrite(columnas[i], LOW);
+  }
+}
+
+void setup()
+{
+  configurarPuertos();
+}
+
+void loop()
+{
+
+  switch (estado)
+  {
+
+  case CONFIG:
+    multiplexar(valorSeteado);
+    digitalWrite(LED_CONTAR, LOW);
+    digitalWrite(LED_FIN, LOW);
+
+    if (boton(0))
+      valorSeteado = (valorSeteado + 1) % 10000;
+    if (boton(1))
+      valorSeteado = (valorSeteado + 10) % 10000;
+    if (boton(2))
+      valorSeteado = (valorSeteado + 100) % 10000;
+    if (boton(3))
+      valorSeteado = (valorSeteado + 1000) % 10000;
+
+    if (boton(4))
+    {
+      contador = 0;
+      tiempoConteo = millis();
+      estado = CONTANDO;
+    }
+    break;
+
+  case CONTANDO:
+    multiplexar(contador);
+    digitalWrite(LED_CONTAR, HIGH);
+
+    if (millis() - tiempoConteo >= 200)
+    {
+      tiempoConteo = millis();
+      contador++;
+    }
+
+    if (boton(4))
+      estado = PAUSA;
+
+    if (contador >= valorSeteado)
+      estado = FINALIZADO;
+    break;
+
+  case PAUSA:
+    multiplexar(contador);
+    digitalWrite(LED_CONTAR, LOW);
+
+    if (boton(4))
+      estado = CONTANDO;
+    break;
+
+ case FINALIZADO:
+  digitalWrite(LED_FIN, HIGH);
+
+  // Normal: 8888 parpadeando
+  if (!reinicioPendiente)
+  {
+    mostrarFinal();
+
+    if (boton(5))
+    {
+      reinicioPendiente = true;
+      tiempoReinicio = millis();
+    }
+  }
+  else
+  {
+    unsigned long dt = millis() - tiempoReinicio;
+
+    if (dt < 300)
+    {
+      multiplexar(contador);
+    }
+
+    else if (dt < 600)
+    {
+      uint8_t fin[5] = {
+          tabla7seg[8], tabla7seg[8],
+          tabla7seg[8], tabla7seg[8],
+          tabla7seg[8]};
+
+      enviar595(fin);
+      for (int i = 0; i < 4; i++)
+        digitalWrite(columnas[i], HIGH);
+    }
+
+    else
+    {
+      reinicioPendiente = false;
+      valorSeteado = 0;
+      contador = 0;
+      estado = CONFIG;          
+      digitalWrite(LED_FIN, LOW);
+    }
+  }
+  break;

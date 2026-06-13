@@ -1,0 +1,11 @@
+.lista{
+    font-size: 30px;
+    font-family: sans-serif;
+    border: 2px solid black;
+}
+
+.listaingrediente{
+    color: green;
+    text-decoration: underline;
+}
+

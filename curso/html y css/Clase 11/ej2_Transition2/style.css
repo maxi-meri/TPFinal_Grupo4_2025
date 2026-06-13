@@ -1,0 +1,38 @@
+body{
+    background-color: gray;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+.caja{
+    background-color: white;
+    margin: 20px;
+    padding: 6px;
+    border: 2px solid #48e;
+    border-radius: 40px;
+}
+
+.barra{
+    padding: 40px;
+    background-color: #48e;
+    border-radius: 35px;
+    width: 10%;
+    transition: width 2s linear;
+    transition-timing-function:;
+}
+
+.barra:active{
+    width: 100%;
+}
+
+
+/*
+transition-timing-function: 
+steps():Pasos
+ease : un comienzo lento, luego rápido y finalmente termina lento
+ease-in:  un comienzo lento y acelera.
+ease-out: comienza rapido y tiene un final lento.
+ease-in-out: un comienzo lento y un final lento.
+linear: una velocidad constante de principio a fin.

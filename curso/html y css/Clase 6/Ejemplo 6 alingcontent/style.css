@@ -1,0 +1,26 @@
+body{
+    font-size: 20px;
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.caja{
+    display: flex;
+    margin: auto;
+    margin-top: 50px;
+    height: 80vh;
+    width: 80vw;
+    background-color: salmon;
+    border: 3px solid black;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    align-content: start;
+}
+
+.elemento{
+    margin: 10px;
+    background-color: pink;
+}

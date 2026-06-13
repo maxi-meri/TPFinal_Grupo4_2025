@@ -1,0 +1,11 @@
+body{
+    font-family: sans-serif;
+    text-align: justify;
+}
+.box{
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+    position: sticky;
+    top: 120px;
+}

@@ -1,0 +1,19 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.grid{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit /*aca se puede usar auto-fit o auto-fill*/, minmax(100px, 150px));
+    grid-template-rows: repeat(3, 100px);
+}
+
+.grid__item{
+    background-color: goldenrod;
+    padding: 10px;
+    font-size: 30px;
+    color: red;
+}

@@ -1,0 +1,10 @@
+.caja{
+    background-color: blue;
+    width: 601px;
+    height: 201px;
+
+}
+.caja_elemento{
+    background-color: yellow;
+    width: 40%;
+}

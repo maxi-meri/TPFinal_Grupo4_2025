@@ -1,0 +1,8 @@
+div{
+    border: 2px solid black;
+}
+
+div:empty{
+    border: none;
+}
+/*MDN Pseudoclases, pagina recomendada*/

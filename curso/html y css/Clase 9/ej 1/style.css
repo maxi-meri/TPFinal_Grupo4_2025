@@ -1,0 +1,18 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.grid{
+    display: grid;
+}
+
+.grid__item{
+    background-color: blue;
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    width: 88px;
+    display: inline-block;
+}

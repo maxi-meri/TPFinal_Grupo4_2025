@@ -1,0 +1,4 @@
+h1::selection{
+    color: gray;
+    background-color: white;
+}

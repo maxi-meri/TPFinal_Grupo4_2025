@@ -1,0 +1,18 @@
+body{
+    font-family: sans-serif;
+    color: red;
+}
+
+
+h2{
+    color: magenta;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+
+
+h2:hover{
+    background-color: gray;
+}

@@ -1,0 +1,55 @@
+body{
+    background-color: gray;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+.caja{
+    background-color: white;
+    margin: 20px;
+    padding: 6px;
+    border: 2px solid #48e;
+    border-radius: 40px;
+}
+
+.barra{
+    padding: 40px;
+    background-color: #48e;
+    border-radius: 35px;
+    width: 10%;
+    animation-name: llenar-barra;
+    animation-duration: 0.4s;
+    animation-delay: 0;
+    animation-timing-function: linear;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+}
+
+@keyframes llenar-barra{
+    0%{
+        width: 0%;
+    }
+    
+    25%{
+        width: 25%;
+        background-color: red;
+    }
+
+    50%{
+        width: 50%;
+        background-color: yellow;
+    }
+
+    75%{
+        width: 75%;
+        background-color: green;
+    }
+
+    100%{
+        width: 100%;
+        background-color: blue;
+    }
+
+}

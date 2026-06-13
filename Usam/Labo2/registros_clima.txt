@@ -1,0 +1,72 @@
+S01, Mendoza, 28.5, 40, OK
+S02, Salta, 31.5, 50, OK
+S03, Buenos Aires, 22.1, 75, OK
+S04, Cordoba, 26.4, 45, OK
+S05, Rosario, 24.8, 80, FALLA
+S06, Ushuaia, 2.5, 85, OK
+S07, Bariloche, 12.3, 60, OK
+S08, Mendoza, 29.1, 38, OK
+S09, Salta, 32.8, 48, BAJA
+S10, Buenos Aires, 21.5, 78, OK
+S11, Cordoba, 27.0, 42, OK
+S12, Rosario, 25.1, 77, OK
+S13, Ushuaia, 1.8, 88, OK
+S14, Bariloche, 11.5, 62, FALLA
+S15, Mendoza, 30.2, 35, OK
+S16, Salta, 33.1, 45, OK
+S17, Buenos Aires, 23.0, 70, OK
+S18, Cordoba, 25.8, 48, OK
+S19, Rosario, 24.5, 82, OK
+S20, Ushuaia, 3.2, 80, OK
+S21, Bariloche, 13.0, 58, OK
+S22, Mendoza, 27.9, 41, OK
+S23, Salta, 30.5, 52, OK
+S24, Buenos Aires, 20.8, 80, FALLA
+S25, Cordoba, 28.1, 40, OK
+S26, Rosario, 26.0, 75, OK
+S27, Ushuaia, 0.5, 90, OK
+S28, Bariloche, 10.8, 65, OK
+S29, Mendoza, 31.0, 36, OK
+S30, Salta, 34.2, 42, OK
+S31, Buenos Aires, 22.5, 72, OK
+S32, Cordoba, 26.9, 44, OK
+S33, Rosario, 25.5, 79, OK
+S34, Ushuaia, 4.1, 78, BAJA
+S35, Bariloche, 14.2, 55, OK
+S36, Mendoza, 28.8, 39, OK
+S37, Salta, 31.9, 49, OK
+S38, Buenos Aires, 21.2, 76, OK
+S39, Cordoba, 27.5, 41, OK
+S40, Rosario, 24.2, 83, OK
+S41, Ushuaia, 1.2, 86, FALLA
+S42, Bariloche, 11.9, 61, OK
+S43, Mendoza, 29.5, 37, OK
+S44, Salta, 32.5, 47, OK
+S45, Buenos Aires, 23.5, 68, OK
+S46, Cordoba, 26.2, 46, OK
+S47, Rosario, 25.8, 76, OK
+S48, Ushuaia, 2.9, 82, OK
+S49, Bariloche, 12.8, 59, OK
+S50, Mendoza, 30.8, 34, FALLA
+S51, Salta, 33.8, 44, OK
+S52, Buenos Aires, 20.5, 82, OK
+S53, Cordoba, 28.5, 39, OK
+S54, Rosario, 26.5, 74, OK
+S55, Ushuaia, 0.0, 92, OK
+S56, Bariloche, 10.5, 66, OK
+S57, Mendoza, 27.5, 42, OK
+S58, Salta, 30.1, 53, OK
+S59, Buenos Aires, 22.8, 71, BAJA
+S60, Cordoba, 27.2, 43, OK
+S61, Rosario, 24.9, 81, OK
+S62, Ushuaia, 3.8, 79, OK
+S63, Bariloche, 13.5, 57, OK
+S64, Mendoza, 28.2, 40, OK
+S65, Salta, 31.2, 51, OK
+S66, Buenos Aires, 21.8, 74, OK
+S67, Cordoba, 26.7, 45, OK
+S68, Rosario, 25.3, 78, FALLA
+S69, Ushuaia, 2.1, 84, OK
+S70, Bariloche, 12.1, 60, OK
+S71, Mendoza, 31.5, 33, OK
+S72, Salta, 34.5, 41, OK

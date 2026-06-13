@@ -1,0 +1,27 @@
+body{
+margin: 0;
+padding: 0;
+font-family: sans-serif;
+text-align: center;
+font-weight: bold;
+font-size: 25px;
+color: black;
+}
+
+.caja{
+ display: flex;
+ height: 350px;
+ width: 800px;
+ background-color: salmon;
+ border: 5px double black;
+ flex-direction: row;
+ align-items: flex-start;
+ justify-content: space-between;
+}
+
+.elemento{
+    width: 100px;
+    background-color: pink;
+    margin: 10px;
+
+}

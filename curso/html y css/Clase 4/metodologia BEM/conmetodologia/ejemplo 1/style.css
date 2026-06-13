@@ -1,0 +1,15 @@
+.lista{
+    font-size: 30px;
+    font-family: monospace;
+    border: 2px solid black;
+}
+
+.lista__ingrediente{
+    color: blue;
+    text-decoration: overline;
+}
+
+.ingrediente--perjudicial{
+    color: red;
+    font-weight: bold;
+}

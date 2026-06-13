@@ -1,0 +1,9 @@
+@media print{
+    body{
+        font-size: 100px;
+
+    }
+    .red{
+        color: red;
+    }
+}

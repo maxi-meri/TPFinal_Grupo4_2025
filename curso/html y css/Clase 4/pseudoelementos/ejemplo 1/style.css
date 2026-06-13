@@ -1,0 +1,13 @@
+h1::first-letter{
+    color: rebeccapurple;
+    font-size: 47px;
+}
+
+p::first-line{
+    color: blueviolet;
+}
+
+p::first-letter{
+    color: royalblue;
+    font-size: 30px;
+}

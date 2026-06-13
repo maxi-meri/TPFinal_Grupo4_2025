@@ -1,0 +1,19 @@
+body{
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+.box{
+    width: 150px;
+    height: 150px;
+    background-color:orange;
+    position: relative;
+}
+.box--azul{
+    width: 150px;
+    height: 150px;
+    background-color: blue;
+    left: 200px;
+    top: 180px;
+}

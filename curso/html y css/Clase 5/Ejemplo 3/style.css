@@ -1,0 +1,11 @@
+.formulario{
+    background-color: green;
+    width: 500px;
+    height: 200px;
+}
+
+.formulario_input{
+    margin: 10px;
+    width: 50%;
+    padding: 20px;
+}

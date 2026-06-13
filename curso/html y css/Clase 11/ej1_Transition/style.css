@@ -1,0 +1,37 @@
+.caja{
+    width: 200px;
+    height: 200px;
+    margin-top: 100px;
+    background-color: red;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.caja:hover{
+    color: white;
+    background-color: blue;
+}
+
+
+
+.caja2{
+    width: 200px;
+    height: 200px;
+    margin-top: 100px;
+    background-color: red;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+
+    transition-property: color background-color;
+    transition-duration: 2s;
+    transition-delay: 1s;
+}
+
+.caja2:hover{
+    color: white;
+    background-color: blue;
+}
+

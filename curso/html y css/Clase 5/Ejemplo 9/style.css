@@ -1,0 +1,12 @@
+body{
+    font-family: Arial;
+}
+
+.bloque{
+    display: inline-block;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    width: 200px;
+}

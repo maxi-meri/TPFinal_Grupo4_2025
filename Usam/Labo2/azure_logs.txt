@@ -1,0 +1,12 @@
+VM_01, East US, 85.5, 64, Active
+VM_02, East US, 42.0, 32, Active
+VM_03, East US, 91.2, 128, Active
+VM_04, East US, 78.5, 64, Active
+VM_05, East US, 88.0, 64, Active
+VM_06, East US, 95.1, 32, Stopped
+VM_07, Canada Central, 60.0, 16, Active
+VM_08, Canada Central, 82.3, 32, Active
+VM_09, Canada Central, 45.5, 16, Stopped
+VM_10, Brazil South, 45.0, 8, Active
+VM_11, Brazil South, 99.9, 64, Error
+VM_12, East US, 81.5, 32, Active
